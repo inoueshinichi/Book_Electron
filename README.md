@@ -7,6 +7,12 @@ Tutorial of Electron with TypeScript
 
 ### Verion 
 + Electron ver 10.0
++ Node.js ver 18.16.1 LTS
++ npm ver 9.7.2
+
+
+
+
 
 
 
