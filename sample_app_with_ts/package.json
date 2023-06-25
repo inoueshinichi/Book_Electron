@@ -2,7 +2,7 @@
   "name": "sample_app_with_ts",
   "version": "1.0.0",
   "description": "Electronではじめるデスクトップ開発(TypeScript)",
-  "main": "index.ts",
+  "main": "./dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
