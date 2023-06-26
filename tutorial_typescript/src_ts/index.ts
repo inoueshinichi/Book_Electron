@@ -1,3 +1,10 @@
-const message: string = "Hello, world!";
+/**
+ * TypeScriptのHelloWorld
+ */
 
-console.log(message);
+const message: string = ", world!";
+
+let greeting: string;
+greeting = "Hello"
+
+console.log(greeting + message);
