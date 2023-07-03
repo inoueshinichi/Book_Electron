@@ -2,16 +2,16 @@
 // const message: string = "Hello, world!";
 // console.log(message);
 const { app, BrowserWindow } = require('electron');
-const html = '<html><head>'
-    + '<titile>HTML STRING</title>'
-    + '</head><body>'
-    + '<h1>HTML STRING</h1>'
-    + '<p>This is string content.</p>'
-    + '</body></html>';
+// const html = '<html><head>'
+//     + '<titile>HTML STRING</title>'
+//     + '</head><body>'
+//     + '<h1>HTML STRING</h1>'
+//     + '<p>This is string content.</p>'
+//     + '</body></html>';
 function createWindow() {
     let win = new BrowserWindow({
-        width: 400,
-        height: 200,
+        width: 1024,
+        height: 768,
         backgroundColor: '#660066',
         webPreferences: {
             nodeIntegration: true
@@ -20,15 +20,23 @@ function createWindow() {
     win.loadFile('../html/index.html');
     // win.loadURL('https://www.tuyano.com');
     // win.loadURL('data:text/html;charset=utf-8,' + html);
+    // let child = new BrowserWindow({
+    //     width: 350,
+    //     height: 200,
+    //     parent: win,
+    //     webPreferences: {
+    //         nodeIntegration: true
+    //     }
+    // });
+    // child.loadURL('data:text/html;charset=utf-8,' + html);
     let child = new BrowserWindow({
-        width: 350,
-        height: 200,
+        width: 500,
+        height: 400,
         parent: win,
-        webPreferences: {
-            nodeIntegration: true
-        }
+        frame: false,
+        modal: true,
     });
-    child.loadURL('data:text/html;charset=utf-8,' + html);
+    child.loadFile('../html/sub.html');
 }
 app.whenReady().then(createWindow);
 app.on('window-all-closed', () => {
