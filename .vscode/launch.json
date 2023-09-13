@@ -5,16 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Debug Main Process",
             "type": "node",
             "request": "launch",
-            "name": "プログラムの起動",
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
-            "program": "${workspaceFolder}/sample_app_with_ts/src_ts/index.ts",
-            "outFiles": [
-                "${workspaceFolder}/**/*.js"
-            ]
+            "cwd": "${workspaceFolder}",
+            "program": "${workspaceFolder}/sample_app_with_ts/dist/main.js",
+            "runtimeExecutable": "/Users/inoueshinichi/.nodebrew/current/bin/electron",
+            "windows": {
+                // Windows OS用のelectronコマンドまでのパス
+                "runtimeExecutable": "your/path/to/node/.bin/electron.cmd"
+            },
+            "args": ["."],
+            "outputCapture": "std"
         }
     ]
 }

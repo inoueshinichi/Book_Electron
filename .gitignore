@@ -1,3 +1,9 @@
-# Directory
+
+
+###### Electron ######
+
+# NodeJs libraries
 node_modules/
-dst_js/
+
+# Productions
+dist/
