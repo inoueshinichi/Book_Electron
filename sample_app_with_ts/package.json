@@ -2,7 +2,7 @@
   "name": "sample_app_with_ts",
   "version": "1.0.0",
   "description": "Electronではじめるデスクトップ開発(TypeScript)",
-  "main": "./dist/main.js",
+  "main": "./dist/main2.js",
   "type": "commonjs",
   "scripts": {
     "start": "electron .",

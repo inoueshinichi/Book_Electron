@@ -17,13 +17,14 @@ function createWindow(): void {
     let win = new BrowserWindow({
         width: 1024,
         height: 768,
+        // show: false, // false
         backgroundColor: '#3F4551',
         webPreferences: {
             nodeIntegration: true
         }
     });
     win.loadFile('../html/index.html');
-    
+
     /* レンダラープロセスのためのデバッグツール設定 */
     // win.webContents.openDevTools();
 
