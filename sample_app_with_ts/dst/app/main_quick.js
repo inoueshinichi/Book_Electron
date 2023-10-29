@@ -3,6 +3,9 @@
 const electron = require('electron');
 const path = require('path');
 const url = require('url');
+// import Electron from "electron"
+// import * as path from "path";
+// import * as url from "url";
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 // Electronのライフサイクル定義
@@ -17,7 +20,7 @@ app.on('window-all-closed', () => {
 // ウィンドウを作成してコンテンツを読み込む
 function createWindow() {
     let mainWindow = new BrowserWindow({
-        windth: 800,
+        width: 800,
         height: 600,
         webPreferences: {
             nodeIntegration: false
@@ -37,6 +40,6 @@ function createWindow() {
     mainWindow.webContents.openDevTools();
     // ウィンドウが閉じるときの処理
     mainWindow.on('closed', function () {
-        mainWindow = null;
+        console.log("[Event] closed");
     });
 }

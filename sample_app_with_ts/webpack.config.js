@@ -30,13 +30,15 @@ module.exports = {
     // development に設定するとソースマップ有効でJSファイルが出力される
     mode: 'development', // "production" | "development" | "none"
 
+    devtool: "source-map", // *.js.mapが出力される
+
     entry: {
-        index: path.join(__dirname, 'dst', 'render', 'index.js')
+        bundle: path.join(__dirname, 'dst', 'render', 'index.js')
     },
 
     output: {
         path: path.join(__dirname, 'html', "static", "js"),
-        filename: 'bundle.js'
+        filename: '[name].js'
     },
     
     module: {
@@ -68,7 +70,7 @@ module.exports = {
             },
             // CSSの場合
             {
-                test: /\..css$/,
+                test: /\.css$/,
                 use: [
                     'style-loader',
                     {
