@@ -4,12 +4,12 @@
 const { app, BrowserWindow } = require('electron');
 // import { app, BrowserWindow } from 'electron';
 
-// const html = '<html><head>'
-//     + '<titile>HTML STRING</title>'
-//     + '</head><body>'
-//     + '<h1>HTML STRING</h1>'
-//     + '<p>This is string content.</p>'
-//     + '</body></html>';
+const html = '<html><head>'
+    + '<titile>HTML STRING</title>'
+    + '</head><body>'
+    + '<h1>HTML STRING</h1>'
+    + '<p>This is string content.</p>'
+    + '</body></html>';
 
 function createWindow(): void {
 
@@ -20,10 +20,10 @@ function createWindow(): void {
         // show: false, // false
         backgroundColor: '#3F4551',
         webPreferences: {
-            nodeIntegration: true
+            nodeIntegration: false
         }
     });
-    win.loadFile('../html/index.html');
+    win.loadFile('../../html/index.html');
 
     /* レンダラープロセスのためのデバッグツール設定 */
     // win.webContents.openDevTools();
@@ -65,7 +65,7 @@ function createWindow(): void {
         // transparentにする場合 frame: false にする. この設定を怠ると, windowsで透過ウィンドウを実現できない.
         transparent: true
     });
-    child_transparent.loadFile("../html/sub.html");
+    child_transparent.loadFile("../../html/sub.html");
 
     /* 0: 透明, 1: 不透過 */
     let child_opacity = new BrowserWindow({
@@ -75,7 +75,7 @@ function createWindow(): void {
         /* opacity */
         opacity: 0.7
     });
-    child_opacity.loadFile("../html/sub.html");
+    child_opacity.loadFile("../../html/sub.html");
 
     /* BrowserWindowを対象にした個別イベント */
 
@@ -126,12 +126,12 @@ app.on('ready', () => {
 
 // ウィンドウがフォーカスされた
 app.on('browser-window-focus', (event: any) => {
-    console.log('[Event] browser-window-focus; Forcacing window with ' + event.sender.id);
+    console.log('[Event] browser-window-focus; Forcacing window with ' + event.sender /*.id*/);
 });
 
 // ウィンドウのフォーカスが外れた
 app.on('browser-window-blur', (event: any) => {
-    console.log('[Event] browser-window-blur; Unforcasing widnow with ' + event.sender.id);
+    console.log('[Event] browser-window-blur; Unforcasing widnow with ' + event.sender /*.id*/);
 });
 
 // event.sender: イベントが発生したウィンドウ

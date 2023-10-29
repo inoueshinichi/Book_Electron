@@ -1,14 +1,14 @@
 const { app, BrowserWindow } = require('electron');
 
 function createWindow(): void {
+    
     // Top-Level ウィンドウ
     let win = new BrowserWindow({
         width: 1024,
         height: 768,
         show: false, // false
-        backgroundColor: '#3F4551',
         webPreferences: {
-            nodeIntegration: true
+            nodeIntegration: false
         }
     });
 
@@ -22,6 +22,53 @@ function createWindow(): void {
 
     win.on('show', () => {
         console.log('show browser-window.');
+    });
+
+    // コールバック
+    const fn = (event: any) => {
+        console.log('[Callback] focus: ' + event.sender/*.id*/);
+    }
+
+    let siblign_win = new BrowserWindow({
+        width: 400,
+        height: 200,
+        backgroundColor: '#3F4551',
+        // parent: win,
+    });
+    siblign_win.loadFile('../../html/sub.html');
+
+    siblign_win.on('focus', fn);
+
+    const siblign_win2 = new BrowserWindow({
+        width: 400,
+        height: 400,
+        backgroundColor: '#3F4551',
+    });
+
+    siblign_win2.flag = true;
+    siblign_win2.on('focus', (event: any) => {
+        event.sender/*.flag*/ = !event.sender/*.flag*/;
+        console.log('[Callback] flag: ' + event.sender/*.flag*/);
+    });
+
+    siblign_win2.on('will-move', (event: any) => {
+        if (event.sender.flag/*true*/) {
+            event.preventDefault();
+        }
+    });
+
+    siblign_win2.on('move', (event: any) => {
+        console.log(event.sender.getPosition());
+    });
+
+    siblign_win2.on('will-resize', (event: any) => {
+        if (!event.sender.flag/*false*/) {
+            event.preventDefault();
+        }
+    });
+
+    siblign_win2.on('resize', (event: any) => {
+        console.log(event.sender.getSize());
     });
 
 } // function createWindow(): void
@@ -47,12 +94,12 @@ app.on('ready', () => {
 
 // ウィンドウがフォーカスされた
 app.on('browser-window-focus', (event: any) => {
-    console.log('[Event] browser-window-focus; Forcacing window with ' + event.sender.id);
+    console.log('[Event] browser-window-focus; Forcacing window with ' + event.sender/*.id*/);
 });
 
 // ウィンドウのフォーカスが外れた
 app.on('browser-window-blur', (event: any) => {
-    console.log('[Event] browser-window-blur; Unforcasing widnow with ' + event.sender.id);
+    console.log('[Event] browser-window-blur; Unforcasing widnow with ' + event.sender/*.id*/);
 });
 
 // event.sender: イベントが発生したウィンドウ
@@ -71,7 +118,7 @@ app.on('web-contents-created', (event: any) => {
 // 全ウィンドウ削除時
 app.on('window-all-closed', () => {
     console.log("[Event] window-all-closed; Electron has closed all windows.");
-    if (process.platform !== 'darwin') {
+    if (process.platform == 'darwin') {
         app.quit();
     }
 });

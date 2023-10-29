@@ -1,21 +1,43 @@
 {
+  "private": true,
   "name": "sample_app_with_ts",
   "version": "1.0.0",
   "description": "Electronではじめるデスクトップ開発(TypeScript)",
-  "main": "./dist/main2.js",
+  "main": "./dst/app/main_quick.js",
   "type": "commonjs",
   "scripts": {
-    "start": "electron .",
-    "test": "jest"
+    "start": "npx electron .",
+    "build": "npx tsc",
+    "bundle": "npx webpack",
+    "build-watch": "npx tsc --watch",
+    "bundle-watch": "npx webpack --watch",
+    "lint": "npx ts-lint",
+    "test": "npx ts-jest"
   },
   "author": "inoue.shinichi.1800@gmail.com",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.23.2",
+    "@babel/plugin-transform-react-jsx": "^7.22.15",
+    "@babel/plugin-transform-react-jsx-self": "^7.22.5",
+    "@babel/preset-env": "^7.23.2",
+    "@babel/preset-react": "^7.22.15",
+    "@babel/preset-typescript": "^7.23.2",
     "@types/node": "^20.3.1",
-    "typescript": "^5.1.3"
+    "@types/react": "^18.2.33",
+    "babel-loader": "^9.1.3",
+    "css-loader": "^6.8.1",
+    "style-loader": "^3.3.3",
+    "ts-jest": "^29.1.1",
+    "ts-lint": "^4.5.1",
+    "typescript": "^5.1.3",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
   },
   "dependencies": {
     "@types/jest": "^29.5.4",
-    "ts-jest": "^29.1.1"
+    "electron": "^27.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }
