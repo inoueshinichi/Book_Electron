@@ -43,3 +43,4 @@ function createWindow() {
         console.log("[Event] closed");
     });
 }
+//# sourceMappingURL=main_quick.js.map

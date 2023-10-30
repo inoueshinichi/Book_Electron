@@ -1,10 +1,10 @@
-const { React, Component } = require('react');
-const ReactDOM = require('react-dom/client');
-// import React from "react";
-// import ReactDOM from "react-dom";
+// const { React, Component } = require('react');
+// const ReactDOM = require('react-dom/client');
+import React from "react";
+import ReactDOM from "react-dom";
 
-// const StrictModeApp = require('./StrictMoeApp');
-// import StrictModeApp from "./StrictMoeApp";
+// const StrictModeApp = require('./components/StrictMoeApp');
+import StrictModeApp from "./components/StrictModeApp";
 
 
 // テスト
@@ -19,8 +19,9 @@ const App = () => {
 }
 
 // DOMを書き換え
-// ReactDOM.render(<App />, document.getElementById('app'));
+// ReactDOM.render(<App />, document.getElementById('root'));
 // ReactDOM.render(<StrictModeApp />, document.getElementById('root'));
+
 
 // React.StrictModeはcreateRootが必要?
 const root = ReactDOM.createRoot(

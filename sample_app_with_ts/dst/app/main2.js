@@ -110,3 +110,4 @@ app.on('will-quit', () => {
 app.on('quit', () => {
     console.log("[Event] quit; Electron has quited (terminated).");
 });
+//# sourceMappingURL=main2.js.map

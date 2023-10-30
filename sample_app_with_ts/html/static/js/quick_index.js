@@ -29875,38 +29875,6 @@ if (
 
 /***/ }),
 
-/***/ "./node_modules/react-dom/client.js":
-/*!******************************************!*\
-  !*** ./node_modules/react-dom/client.js ***!
-  \******************************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-
-var m = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-if (false) {} else {
-  var i = m.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
-  exports.createRoot = function(c, o) {
-    i.usingClientEntryPoint = true;
-    try {
-      return m.createRoot(c, o);
-    } finally {
-      i.usingClientEntryPoint = false;
-    }
-  };
-  exports.hydrateRoot = function(c, h, o) {
-    i.usingClientEntryPoint = true;
-    try {
-      return m.hydrateRoot(c, h, o);
-    } finally {
-      i.usingClientEntryPoint = false;
-    }
-  };
-}
-
-
-/***/ }),
-
 /***/ "./node_modules/react-dom/index.js":
 /*!*****************************************!*\
   !*** ./node_modules/react-dom/index.js ***!
@@ -34743,6 +34711,17 @@ if (false) {} else {
 /******/ 	}
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/node module decorator */
 /******/ 	(() => {
 /******/ 		__webpack_require__.nmd = (module) => {
@@ -34756,50 +34735,40 @@ if (false) {} else {
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
-var exports = __webpack_exports__;
-/*!*****************************!*\
-  !*** ./dst/render/index.js ***!
-  \*****************************/
+/*!*****************************************!*\
+  !*** ./dst/render/quick/quick_index.js ***!
+  \*****************************************/
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 
 
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-var jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-var _require = __webpack_require__(/*! react */ "./node_modules/react/index.js"),
-  React = _require.React,
-  Component = _require.Component;
-var ReactDOM = __webpack_require__(/*! react-dom/client */ "./node_modules/react-dom/client.js");
-// import React from "react";
-// import ReactDOM from "react-dom";
-// const StrictModeApp = require('./StrictMoeApp');
-// import StrictModeApp from "./StrictMoeApp";
 // テスト
 function calcAdd(a, b) {
   return a + b;
 }
 // Reactコンポーネント
 var App = function App() {
-  return (0, jsx_runtime_1.jsx)("h1", {
+  return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h1", {
     children: "Hello World! React with Typescript"
   });
 };
 // DOMを書き換え
-// ReactDOM.render(<App />, document.getElementById('app'));
+// ReactDOM.render(<App />, document.getElementById('root'));
 // ReactDOM.render(<StrictModeApp />, document.getElementById('root'));
 // React.StrictModeはcreateRootが必要?
-var root = ReactDOM.createRoot(document.getElementById('root'));
+var root = react_dom__WEBPACK_IMPORTED_MODULE_1__.createRoot(document.getElementById('root'));
 // https://stackoverflow.com/questions/66480176/why-there-is-there-an-error-when-using-react-strict-mode
-// React.StrictModeは, ESModulesに沿って、exportが解釈される場合に有効. でもサーバーサイドは依然としてCommonJSなので、
-// 基本フロントエンド以外は現状使わ内容が良さそう.
+// React.StrictModeは, ESModulesに沿って、exportが解釈される場合に有効. 
+// しかし、サーバーサイドは依然としてCommonJSなので、基本フロントエンド以外は現状使わ内容が良さそう.
 root.render(
 // <React.StrictMode>
 // <StrictModeApp />
-(0, jsx_runtime_1.jsx)(App, {})
+(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(App, {})
 // </React.StrictMode>
 );
 })();
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle.js.map
+//# sourceMappingURL=quick_index.js.map

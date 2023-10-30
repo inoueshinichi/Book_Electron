@@ -33,7 +33,8 @@ module.exports = {
     devtool: "source-map", // *.js.mapが出力される
 
     entry: {
-        bundle: path.join(__dirname, 'dst', 'render', 'index.js')
+        quick_index: path.join(__dirname, 'dst', 'render', 'quick', 'quick_index.js'),
+        clipboard_index: path.join(__dirname, 'dst', 'render', 'clipboard', 'clipboard_index.js'),
     },
 
     output: {
@@ -47,7 +48,11 @@ module.exports = {
             {
                 test: /\.js[x]?$/, 
                 loader: 'babel-loader',
-                exclude: /node_modules/,
+                exclude: [
+                    /node_modules/, 
+                    /src\//,
+                    /dst\/app\//
+                ],
                 options: {
                     presets: [
                         '@babel/preset-env',
@@ -59,7 +64,11 @@ module.exports = {
             {
                 test: /\.ts[x]?$/,
                 loader: 'babel-loader',
-                exclude: /node_modules/,
+                exclude: [
+                    /node_modules/,
+                    /src\//,
+                    /dst\/app\//
+                ],
                 options: {
                     presets: [
                         '@babel/prest-env',
